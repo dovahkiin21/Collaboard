@@ -1,0 +1,58 @@
+<% if(perm) { %>
+  <div class="app">
+    <div class="controls">
+      <div class="title">Sketch</div>
+      <div class="type">
+        <input type="radio" name="pen-type" id="pen-pencil" checked>
+        <label for="pen-pencil">
+          <i class="fa fa-pencil"></i>
+        </label>
+        <input type="radio" name="pen-type" id="pen-brush">
+        <label for="pen-brush">
+          <i class="fa fa-paint-brush"></i>
+        </label>
+      </div>
+      <div class="size">
+        <label for="pen-size">Size</label>
+        <input type="range" id="pen-size" min="1" max="50">
+      </div>
+      <div class="color">
+        <label for="pen-color">Color</label>
+        <input type="color" id="pen-color" value="#000">
+      </div>
+      
+    </div>
+    <!-- <div id="canvas-wrapper"></div> -->
+  </div>
+<% }%> 
+
+<div id="webcanvas"></div>
+<div>
+  <% if(String(owner)==String(userid)) { %>
+    <form method="POST" action='/jamboard?_id=<%= jambaord_id %>&_uid=<%= userid %>&_method=PUT' id="adduser">
+        <select name="add">
+            <% users.forEach(user=>{ %>
+                <option value="<%= user.email %>"><%= user.email %></option>
+            <% }) %> 
+            <% users2.forEach(user2=>{ %>
+                <option value="<%= user2.mail %>"><%= user2.mail %></option>
+            <% }) %> 
+        </select>
+        <label >Read Only:</label> 
+        <input type="checkbox"  name="myCheck" >
+        <button type="submit">Add</button>
+    </form>    
+<% }%> 
+</div>
+
+<div>
+  <% if(perm) { %>
+    <div style="text-align: center;">
+        <button id="eraser">Eraser</button>
+    </div>
+    <div style="text-align: center;">
+        <button id="btnerase">Clear</button>
+    </div>
+<% }%> 
+</div>
+

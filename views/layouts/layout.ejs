@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamboard</title>
+    <script defer src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <% if(locals.fileused != null && locals.fileused == "Jamboard") { %>
+      <script defer src="javascript/sketch.js"></script>
+    <% } %>
+    <% if(locals.fileused != null && locals.fileused == "dashboard") { %>
+      <script defer src="javascript/dashboard.js"></script>
+    <% } %>
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="javascript/loginreq.js"></script>
+    <script defer src="javascript/signupreq.js"></script>
+    <script defer src="javascript/header.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+
+<body>
+  
+  <%- include('../partials/header.ejs')  %>
+  <%- body %>
+  <%- include("../partials/footer.ejs") %> 
+</body>
+</html>

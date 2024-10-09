@@ -1,0 +1,14 @@
+<section class="content-section mycontainer">
+    <div>
+        <% jamboards.forEach(jamboard=>{ %>
+            <div><a href="/jamboard?_id=<%= jamboard._id %>&_uid=<%= userid %>"><%= jamboard.name %></a></div>
+            <form method="POST" action="/jamboard?_id=<%= jamboard._id %>&_uid=<%= userid %>&_method=DELETE">
+                <button type="sumbit">Delete</button>
+            </form>
+        <% }) %> 
+    </div>
+    <form id="dashboard-form">
+        <input type="text" placeholder="Name" name="name" required/>
+        <button type="submit">Create</button>
+    </form>
+</section>

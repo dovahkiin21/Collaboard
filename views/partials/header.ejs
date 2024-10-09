@@ -1,0 +1,23 @@
+<% if(locals.fileused != "auth") { %>
+  <nav>
+    <div class="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <ul class="nav-links">
+      <% if(locals.user.displayName) { %>
+        <li><a href="/dashboard"><%= locals.user.displayName %></a></li>
+      <% } else { %>
+        <li><a href="/dashboard"><%= locals.user.email %></a></li>
+      <% } %>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <% if(locals.user) { %>
+        <li><a href="/logout">Logout</a></li>
+      <% } else { %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+      <% } %>
+    </ul>
+  </nav>
+<% } %> 
